@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Project.Models.medicine>
+
+@{
+    ViewBag.Title = "ListProduct";
+}
+
+<h2>GetListProduct</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateProduct")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contact)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contact)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditProduct", new { id=item.medicineID }) |
+            @Html.ActionLink("Details", "DetailsProduct", new { id=item.medicineID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.medicineID })
+        </td>
+    </tr>
+}
+
+</table>
